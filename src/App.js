@@ -25,8 +25,6 @@ function App() {
 
   useEffect(() => {
     if (inputValues) {
-      console.log(inputValues);
-
       fetchAuth(inputValues);
     }
   }, [fetchAuth, inputValues]);

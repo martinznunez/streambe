@@ -1,7 +1,11 @@
 import React from "react";
 
 const UserName = ({ userName }) => {
-  return <p>{userName}</p>;
+  return (
+    <p>
+      Hola <strong>{userName}</strong>
+    </p>
+  );
 };
 
 export default UserName;
