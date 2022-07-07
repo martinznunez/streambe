@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { formatDate } from "../../utils/formatDate";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   max-width: 1000px;
@@ -55,7 +56,6 @@ const ContainerTable = styled.table`
 `;
 
 const Table = ({ dataList }) => {
-
   return (
     <Container>
       <TableWrapper>
@@ -71,7 +71,7 @@ const Table = ({ dataList }) => {
             {dataList?.map((elem) => (
               <tr key={elem.contactId}>
                 <td>{elem.name} </td>
-                <td >{ formatDate(elem.birthDate)  } </td>
+                <td>{formatDate(elem.birthDate)} </td>
                 <td>
                   <img
                     src={elem.photo ? elem.photo : "./assets/icon.png"}
@@ -86,6 +86,10 @@ const Table = ({ dataList }) => {
       </TableWrapper>
     </Container>
   );
+};
+
+Table.propTypes = {
+  dataList: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Table;

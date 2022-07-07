@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Title from "../Title";
 import styled from "styled-components";
 import Input from "../Input";
+import PropTypes from 'prop-types'
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -138,6 +139,10 @@ const Login = ({ setInputValues }) => {
       </ContainerLogin>
     </Container>
   );
+};
+
+Login.propTypes = {
+  setInputValues: PropTypes.func,
 };
 
 export default Login;

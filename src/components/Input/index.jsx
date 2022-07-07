@@ -14,6 +14,7 @@ const Input = ({ type, value, placeholder, handleChange, name }) => {
 };
 
 Input.propTypes = {
+  name: PropTypes.string,
   type: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,

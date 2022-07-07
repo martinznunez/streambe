@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logout from "../Setting/Logout";
 import UserName from "../Setting/UserName";
 import Table from "../Table";
+import PropTypes from "prop-types";
 
 import { getDataTable } from "../../service/getDataTable";
 import { useNavigate } from "react-router-dom";
@@ -66,6 +67,10 @@ const Dashboard = ({ user }) => {
       </Container>
     </>
   );
+};
+
+Dashboard.propTypes = {
+  user: PropTypes.string,
 };
 
 export default Dashboard;
