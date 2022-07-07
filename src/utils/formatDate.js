@@ -6,8 +6,5 @@ export const formatDate = (data) => {
     month: "long",
     day: "numeric",
   };
-
-
-
   return formatDate.toLocaleDateString("es-ES", options);
 };

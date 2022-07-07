@@ -7,9 +7,6 @@ import Login from "./index";
 
 const setInputValues = jest.fn();
 
-
-
-
 test("when rendering the component", () => {
   render(
     <Router>

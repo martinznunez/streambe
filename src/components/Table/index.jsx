@@ -65,7 +65,7 @@ const Table = ({ dataList }) => {
             <tr>
               <th>Name</th>
               <th>Birth Date</th>
-              <th> Photo</th>
+              <th>Photo</th>
             </tr>
           </thead>
           <tbody>
@@ -75,7 +75,7 @@ const Table = ({ dataList }) => {
                 <td>{formatDate(elem.birthDate)} </td>
                 <td>
                   <img
-                    src={elem.photo ? elem.photo : "./assets/icon.png"}
+                    src={elem.photo || "./assets/icon.png"}
                     alt="icon"
                   />
                 </td>
