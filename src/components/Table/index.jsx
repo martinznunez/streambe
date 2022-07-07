@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { formatDate } from "../../utils/formatDate";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   max-width: 1000px;
@@ -24,9 +26,11 @@ const ContainerTable = styled.table`
   max-width: 100%;
   white-space: nowrap;
   background-color: white;
+  text-transform:uppercase;
   img {
     width: 40px;
     height: auto;
+    border-radius: 100%;
   }
   td,
   th {
@@ -47,6 +51,8 @@ const ContainerTable = styled.table`
   tr:nth-child(even) {
     background: #f8f8f8;
   }
+
+  
 `;
 
 const Table = ({ dataList }) => {
@@ -65,7 +71,7 @@ const Table = ({ dataList }) => {
             {dataList?.map((elem) => (
               <tr key={elem.contactId}>
                 <td>{elem.name} </td>
-                <td>{elem.birthDate} </td>
+                <td>{formatDate(elem.birthDate)} </td>
                 <td>
                   <img
                     src={elem.photo ? elem.photo : "./assets/icon.png"}
@@ -80,6 +86,10 @@ const Table = ({ dataList }) => {
       </TableWrapper>
     </Container>
   );
+};
+
+Table.propTypes = {
+  dataList: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Table;

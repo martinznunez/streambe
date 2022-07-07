@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import PropTypes from "prop-types";
 const Container = styled.div`
   margin: 10px;
   display: flex;
@@ -24,6 +24,10 @@ const Logout = ({ handleClickLogout }) => {
       <h3 onClick={handleClickLogout}>Logout</h3>
     </Container>
   );
+};
+
+Logout.propTypes = {
+  handleClickLogout: PropTypes.func,
 };
 
 export default Logout;
