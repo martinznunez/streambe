@@ -75,7 +75,7 @@ const Btn = styled.button`
   }
 `;
 
-const Login = ({ setInputValues }) => {
+const Login = ({ handleSubmit }) => {
   const data = window.localStorage.getItem("data");
 
   const [email, setEmail] = useState("");
@@ -89,10 +89,12 @@ const Login = ({ setInputValues }) => {
       return;
     }
 
-    setInputValues({
+    handleSubmit({
       userEmail: email,
       userPassword: password,
     });
+      
+    
   };
 
   const handleChange = (e) => {
@@ -142,7 +144,7 @@ const Login = ({ setInputValues }) => {
 };
 
 Login.propTypes = {
-  setInputValues: PropTypes.func,
+    handleSubmit: PropTypes.func,
 };
 
 export default Login;

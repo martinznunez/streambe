@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 
 import { getDataTable } from "../../service/getDataTable";
 import { useNavigate } from "react-router-dom";
+
 const Container = styled.div`
   display: flex;
   height: 70vh;
@@ -61,7 +62,6 @@ const Dashboard = ({ user }) => {
         <UserName userName={user} />
         <Logout handleClickLogout={handleClickLogout} />
       </ContainerLogout>
-
       <Container>
         <Table dataList={dataList} />
       </Container>

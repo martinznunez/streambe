@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import {getAuth} from "./service/getAuth";
+import { getAuth } from "./service/getAuth";
 import Routing from "./Routing";
 
 const data = window.localStorage.getItem("data");
 function App() {
-  const [user, setUser] = useState(JSON.parse(data));
-  const [inputValues, setInputValues] = useState(null);
 
-  const fetchAuth = useCallback(async (data) => {
+  const [user, setUser] = useState(JSON.parse(data));
+ 
+  const fetchAuth = async () => {
     try {
-      const response = await getAuth(data);
+      const response = await getAuth();
 
       window.localStorage.setItem("data", JSON.stringify(response.data.name));
       setUser(response.data.name);
@@ -19,17 +19,17 @@ function App() {
         "Please try again in a few minutes. We are unable to complete the verification"
       );
     }
-  }, []);
+}
 
-  useEffect(() => {
+  const handleSubmit = (inputValues) => {
     if (inputValues) {
-      fetchAuth(inputValues);
+      fetchAuth();
     }
-  }, [fetchAuth, inputValues]);
+  };
 
   return (
     <div className="App">
-      <Routing setInputValues={setInputValues} user={user} />
+      <Routing handleSubmit={handleSubmit} user={user} />
     </div>
   );
 }

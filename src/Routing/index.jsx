@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Routes, Route,Navigate } from "react-router-do
 import Login from "../components/Login";
 import Dashboard from "../components/Dashboard";
 
-const Routing = ({setInputValues,user}) => {
+const Routing = ({handleSubmit,user}) => {
     
     const data = window.localStorage.getItem("data");
    
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login  setInputValues={setInputValues} />} />
+        <Route path="/" element={<Login  handleSubmit={handleSubmit} />} />
         <Route path="/home" element={ data ?  <Dashboard user={user} /> : <Navigate to="/" />   } />
       </Routes>
     </Router>
