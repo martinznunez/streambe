@@ -34,7 +34,7 @@ const Dashboard = ({ user }) => {
     const fetchDataTable = async () => {
       try {
         const response = await getDataTable();
-
+       
         setDataList(response.data.users);
       } catch (e) {
         alert(
