@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useCallback } from "react";
-
-
 import "./App.css";
 import {getAuth} from "./service/getAuth";
 import Routing from "./Routing";

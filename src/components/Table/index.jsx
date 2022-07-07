@@ -56,6 +56,7 @@ const ContainerTable = styled.table`
 `;
 
 const Table = ({ dataList }) => {
+    
   return (
     <Container>
       <TableWrapper>
