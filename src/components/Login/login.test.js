@@ -5,12 +5,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import Login from "./index";
 
-const setInputValues = jest.fn();
+const handleSubmit = jest.fn();
 
 test("when rendering the component", () => {
   render(
     <Router>
-      <Login setInputValues={setInputValues} />
+      <Login handleSubmit={handleSubmit} />
     </Router>
   );
 
@@ -26,7 +26,7 @@ test("when rendering the component", () => {
 test("when rendering the component and complied inputs", async () => {
   render(
     <Router>
-      <Login setInputValues={setInputValues} />
+      <Login handleSubmit={handleSubmit} />
     </Router>
   );
 
@@ -48,13 +48,13 @@ test("when rendering the component and complied inputs", async () => {
 
   fireEvent.submit(button);
 
-  expect(setInputValues).toHaveBeenCalledTimes(1);
+  expect(handleSubmit).toHaveBeenCalledTimes(1);
 });
 
 test("when the fields are empty and submit is executed", () => {
   render(
     <Router>
-      <Login setInputValues={setInputValues} />
+      <Login handleSubmit={handleSubmit} />
     </Router>
   );
 
@@ -75,5 +75,5 @@ test("when the fields are empty and submit is executed", () => {
   expect(button).toBeInTheDocument();
 
   fireEvent.submit(button);
-  expect(setInputValues).not.toHaveBeenCalled();
+  expect(handleSubmit).not.toHaveBeenCalled();
 });

@@ -1,7 +1,7 @@
 import React from "react";
 
 import axios from "axios";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Dashboard from "./index";
 
@@ -29,19 +29,22 @@ describe("app render", () => {
     
   });
 
-  test("when rendering the component", () => {
+  test("when rendering the component",async () => {
     render(
       <Router>
         <Dashboard user={FAKE_USER} />
       </Router>
     );
 
-    expect(screen.getByText(/name test/i)).toBeInTheDocument();
-    expect(screen.getByText(/Logout/i)).toBeInTheDocument();
-    const img = screen.getByRole("img", { name: /icon/i });
+    await waitFor(() => {
+      expect(screen.getByText(/name test/i)).toBeInTheDocument();
+      expect(screen.getByText(/Logout/i)).toBeInTheDocument();
+      const img = screen.getByRole("img", { name: /icon/i });
 
-    expect(img).toBeInTheDocument();
+      expect(img).toBeInTheDocument();
+     
+    });
 
-   
+
   });
 });
